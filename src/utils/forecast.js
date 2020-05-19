@@ -8,7 +8,8 @@ let forecast = (lat, long, cb) => {
     } else if (body.code === 400) {
       cb(body.error, undefined);
     } else {
-      let data = `${body.daily.data[0].summary} Its currently ${body.currently.temperature} degrees out. There is a ${body.currently.precipProbability}% chance of rain `;
+      console.log(body.daily.data[0]);
+      let data = `${body.daily.data[0].summary} Its currently ${body.currently.temperature} degrees out. There is a ${body.currently.precipProbability}% chance of rain. The high today is ${body.daily.data[0].temperatureMax} degrees with the low of ${body.daily.data[0].temperatureMin}`;
       cb(undefined, data);
     }
   });
